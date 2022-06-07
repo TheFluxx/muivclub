@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Подписки{% endblock %}
+{% block header %}Подписки{% endblock %}
+
+{% block content %}
+
+    {% load cache %}
+    <div class="container">
+
+    {% include "include/menu.html" with follow=True %}
+
+    {% cache 10 follow_index_page %}
+
+        {% for post in page %}
+            {% include "include/post_item.html" %}
+            {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %}
+
+    {% if page.has_other_pages %}
+        {% include "include/paginator.html" with items=page paginator=paginator%}
+    {% endif %}
+
+    {% endcache %}
+
+    </div>
+
+{% endblock %}
