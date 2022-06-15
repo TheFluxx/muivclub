@@ -5,9 +5,12 @@
 ```
 cd muivclub-yatube
 ```
-python -m venv venv
+Создать Виртуальное окружение
 ```
+python -m venv venv
 source venv/Scripts/activate
+```
+Установить необходимые модули
 ```
 pip install -r requirements.txt
 ```
